@@ -1,0 +1,14 @@
+
+services:
+  db:
+    image: groonga/pgroonga:latest-alpine-12-slim
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+volumes:
+  pg-data:
